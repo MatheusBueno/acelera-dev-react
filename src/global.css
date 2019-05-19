@@ -14,4 +14,10 @@
 
 * {
   font-family: regular;
+  box-sizing: border-box;
+}
+
+*:focus {
+  z-index: 1;
+  outline-offset: -3px;
 }
