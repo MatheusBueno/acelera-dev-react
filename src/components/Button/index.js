@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Input from "../Input";
+import { Container as InputSearchContainer } from "../Input/Search/styles";
 
 const styles = {
   icon: css`
@@ -32,7 +33,8 @@ const Button = styled.button`
     box-shadow: none;
   }
 
-  ${Input} ~ & {
+  ${Input} ~ &,
+  ${InputSearchContainer} ~ & {
     box-shadow: none;
   }
 `;
