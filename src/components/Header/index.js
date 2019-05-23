@@ -7,7 +7,7 @@ const Header = props => {
   const [isFull, setFull] = useState(true);
   const search = () => setFull(!isFull);
   return (
-    <HeaderContainer full={isFull}>
+    <HeaderContainer full={!isFull}>
       <InputSearch placeholder="Find a user"/>
       <Button onClick={search}>Search</Button>
     </HeaderContainer>

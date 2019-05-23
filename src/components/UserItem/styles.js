@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   flex: 1 0 calc(33.333% - 20px);
@@ -16,7 +16,7 @@ export const Avatar = styled.img`
 `;
 
 export const Title = styled.h1`
-  color: #282828;
+  color: var(--white);
   font-size: 16px;
   margin: 8px 0;
   padding: 0;

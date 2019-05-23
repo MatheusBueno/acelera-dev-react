@@ -21,3 +21,6 @@
   z-index: 1;
   outline-offset: -3px;
 }
+body {
+  background: var(--black);
+}

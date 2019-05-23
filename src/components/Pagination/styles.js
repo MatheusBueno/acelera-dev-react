@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { ChevronLeft, ChevronRight } from 'react-feather';
+import styled from "styled-components";
+import { ChevronLeft, ChevronRight } from "react-feather";
 
 export const Container = styled.nav`
   display: flex;
@@ -15,12 +15,13 @@ export const Page = styled.span`
   height: 18px;
   margin: 0 8px;
   padding: 10px;
-  text-align: center;
-  vertical-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #282828;
   border-radius: 50%;
-  color: ${props => props.active ? '#ffffff' : '#282828'};
-  background: ${props => props.active ? '#282828' : '#ffffff'};
+  color: ${props => (props.active ? "#ffffff" : "#282828")};
+  background: ${props => (props.active ? "#282828" : "#ffffff")};
   cursor: pointer;
   :hover {
     color: #fff;
