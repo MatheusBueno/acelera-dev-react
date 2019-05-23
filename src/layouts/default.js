@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
 
-import { Route } from "react-router-dom";
-import Header from "../components/Header";
-import RepositoryService from "../services/repository";
+import { Route } from 'react-router-dom';
+import Header from '../components/Header';
+import RepositoryService from '../services/repository';
 
 const DefaultLayout = ({ component: Component, ...rest }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const handleInput = e => {
     const { value } = e.target;

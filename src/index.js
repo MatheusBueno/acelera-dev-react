@@ -1,7 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Router from "./routes";
-import 'reset-css'
-import "./global.css";
+import './config/reactotron';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<Router />, document.getElementById("root"));
+import 'reset-css';
+import './index.css';
+
+import store from './config/store';
+import Router from './config/routes';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router />
+  </Provider>,
+  document.getElementById('root')
+);

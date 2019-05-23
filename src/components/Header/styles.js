@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const styles = {
   full: `
@@ -11,10 +11,12 @@ const Header = styled.header`
   padding: 32px 24px;
   height: 72px;
   width: 100vw;
+  z-index: 2;
   position: fixed;
   background: var(--grey);
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: height 0.2s ease-in;
   ${({ full }) => full && styles.full};
 `;
