@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import Input from "../Input";
-import { Container as InputSearchContainer } from "../Input/Search/styles";
+import { Container as InputSearchContainer } from "../Input/styles";
 
 const styles = {
   icon: css`

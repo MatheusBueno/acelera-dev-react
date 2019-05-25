@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import HeaderContainer from "./styles";
-import InputSearch from "../Input/Search";
+import {InputSearch} from "../Input";
 import Button from "../Button";
 
 const Header = ({ handleInput, input }) => {

@@ -1,4 +1,6 @@
+import React from "react";
 import styled from "styled-components";
+import { Container, SearchIcon } from "./styles";
 
 const Input = styled.input`
   height: 36px;
@@ -21,5 +23,14 @@ const Input = styled.input`
     opacity: 0.7;
   }
 `;
+
+export const InputSearch = ({ input, handleInput }) => {
+  return (
+    <Container>
+      <Input type="search" value={input} onChange={handleInput} />
+      <SearchIcon />
+    </Container>
+  );
+};
 
 export default Input;
