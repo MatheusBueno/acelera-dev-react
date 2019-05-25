@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Container, SearchIcon } from "./styles";
 
@@ -24,13 +25,32 @@ const Input = styled.input`
   }
 `;
 
-export const InputSearch = ({ input, handleInput }) => {
+export const InputSearch = ({ value, onInput, onKeyPress, onChange }) => {
   return (
     <Container>
-      <Input type="search" value={input} onChange={handleInput} />
+      <Input
+        type="search"
+        value={value}
+        onInput={onInput}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
       <SearchIcon />
     </Container>
   );
+};
+
+InputSearch.defaultProps = {
+  value: "",
+  onInput: function() {},
+  onChange: function() {},
+  onKeyPress: function() {}
+};
+InputSearch.propTypes = {
+  value: PropTypes.string,
+  onInput: PropTypes.func,
+  onChange: PropTypes.func,
+  onKeyPress: PropTypes.func
 };
 
 export default Input;
