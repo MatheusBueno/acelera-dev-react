@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Container,
   Repository,
@@ -7,39 +8,26 @@ import {
   RepositoryTitle,
   RepositoryDescription
 } from "./styles";
+import { selectImageLanguage } from "../../utils/utils";
 
-const REPOS = [
-  {
-    name:
-      "JqwdqwdqwdqwdqwdqwdqwdwefwefwefwefwefweçfoknqwelkfnqwekjwençfkjwenfwelkfnS"
-  },
-  {
-    name: "React"
-  },
-  {
-    name: "Angular"
-  },
-  {
-    name: "Vue"
-  },
-  {
-    name: "Java"
-  }
-];
+const RepositoryList = ({ repositoriesList }) => {
+  const selectAImageLanguage = repository =>
+    selectImageLanguage(repository.language);
 
-const RepositoryList = () => {
   return (
     <Container>
-      {REPOS.map(repository => {
+      {repositoriesList.map(repository => {
         return (
-          <Repository>
+          <Repository key={repository.id}>
             <RepositoryImage
-              src={"https://cdn.auth0.com/blog/js-fatigue/JSLogo.png"}
+              src={selectAImageLanguage(repository)}
               alt="Logo"
             />
             <RepositoryContent>
               <RepositoryTitle>{repository.name}</RepositoryTitle>
-              <RepositoryDescription>{repository.name}</RepositoryDescription>
+              <RepositoryDescription>
+                {repository.description}
+              </RepositoryDescription>
             </RepositoryContent>
           </Repository>
         );

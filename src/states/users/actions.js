@@ -1,4 +1,4 @@
-import { usersTypes } from './';
+import { usersTypes } from "./";
 
 const fetchUsers = ({ query }) => ({
   type: usersTypes.FETCH_USERS_REQUEST,
@@ -15,8 +15,14 @@ const fetchUsersFailure = ({ message }) => ({
   payload: { message }
 });
 
+const selectUser = ({ user }) => ({
+  type: usersTypes.SELECT_USER,
+  payload: { user }
+});
+
 export default {
   fetchUsers,
   fetchUsersSuccess,
-  fetchUsersFailure
+  fetchUsersFailure,
+  selectUser
 };

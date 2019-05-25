@@ -1,4 +1,4 @@
-import { usersTypes } from './';
+import { usersTypes } from "./";
 
 const INITIAL_STATE = {
   users: [],
@@ -23,7 +23,14 @@ export default (state = INITIAL_STATE, action) => {
         users: [...action.payload.items]
       };
     case usersTypes.FETCH_USERS_FAILURE:
-      return { ...state, users: [], isLoading: false, error: action.payload.message };
+      return {
+        ...state,
+        users: [],
+        isLoading: false,
+        error: action.payload.message
+      };
+    case usersTypes.SELECT_USER:
+      return { ...state, user: action.payload.user };
     default:
       return state;
   }

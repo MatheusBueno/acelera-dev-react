@@ -7,7 +7,7 @@ class RepositoryService {
     Api.get(`/search/repositories?q=${repo}`);
 
   static getUserRepositories = ({ username }) =>
-    Api.get(`/users/${username}/repos`);
+    Api.get(`/users/${username}/repos?type=all`);
 
   static searchRepositoriesByLanguage = ({ language }) =>
     Api.get(`/search/code?q=addClass+in:file+language${language}`);

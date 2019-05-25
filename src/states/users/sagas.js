@@ -11,8 +11,8 @@ function* fetchUsers(action) {
   }
 }
 
-function* rootSaga() {
+function* userSaga() {
   yield takeLatest(usersTypes.FETCH_USERS_REQUEST, fetchUsers);
 }
 
-export default rootSaga;
+export default userSaga;

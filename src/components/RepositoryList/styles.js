@@ -7,6 +7,7 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 8px;
   padding: 20px;
+  min-height: 100%;
 `;
 
 export const Repository = styled.div`
@@ -15,15 +16,15 @@ export const Repository = styled.div`
   background: #fff;
   border-radius: 8px;
   display: flex;
-  align-items:center;
+  align-items: center;
 `;
 
 export const RepositoryImage = styled.img`
   height: 60px;
   width: 60px;
   border-radius: 100%;
-  background-color: #333;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  background-color: #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 `;
 
 export const RepositoryContent = styled.div`
@@ -44,6 +45,7 @@ export const RepositoryTitle = styled.h1`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Roboto";
 `;
 
 export const RepositoryDescription = styled.h2`
@@ -54,4 +56,5 @@ export const RepositoryDescription = styled.h2`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Roboto";
 `;
