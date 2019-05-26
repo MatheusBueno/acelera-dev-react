@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import UsersBackground from "../../components/UsersBackground";
@@ -7,10 +7,7 @@ import Pagination from "../../components/Pagination";
 import { usersActions, usersSelectors } from "../../states/users";
 
 const Home = props => {
-  const { fetchUsers, selectUser } = props;
-  useEffect(() => {
-    fetchUsers({ query: "tom" });
-  }, [fetchUsers]);
+  const { selectUser } = props;
 
   const { users } = props;
   return (
