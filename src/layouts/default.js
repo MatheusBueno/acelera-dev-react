@@ -31,12 +31,18 @@ const DefaultLayout = ({
         handleInput={handleInput}
         enterPressCheck={enterPressCheck}
         handleSearch={handleSearch}
-        isFull={users && users.length === 0}
+        isFull={false}
       />
       <Route
         {...rest}
         render={matchProps => (
-          <div className="DefaultLayout">
+          <div
+            className="DefaultLayout"
+            style={{
+              padding: "72px 20px 0px",
+              display: "flex"
+            }}
+          >
             {isLoading && <Loading />}
             <Component {...matchProps} />
           </div>

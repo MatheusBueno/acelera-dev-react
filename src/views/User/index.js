@@ -32,9 +32,7 @@ const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
   return (
     <Container>
       <Sidebar user={user} />
-      <Content>
-        <RepositoryList repositoriesList={repositoriesList} />
-      </Content>
+      <RepositoryList repositoriesList={repositoriesList} />
     </Container>
   );
 };

@@ -21,8 +21,10 @@ export const Repository = styled.div`
 `;
 
 export const RepositoryImage = styled.img`
-  height: 60px;
-  width: 60px;
+  min-height: 60px;
+  max-height: 60px;
+  min-width: 60px;
+  max-width: 60px;
   border-radius: 100%;
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
