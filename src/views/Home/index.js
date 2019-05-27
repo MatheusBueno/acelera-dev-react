@@ -30,6 +30,7 @@ const Home = props => {
         enterPressCheck={enterPressCheck}
         handleSearch={handleSearch}
         isFull={users && users.length === 0}
+        placeholder="Search a github user by the name"
       />
       {/* <UsersBackground users={users}> */}
       <main>
