@@ -27,13 +27,6 @@ const DefaultLayout = ({
 
   return (
     <>
-      <Header
-        inputSearchValue={input}
-        handleInput={handleInput}
-        enterPressCheck={enterPressCheck}
-        handleSearch={handleSearch}
-        isFull={false}
-      />
       <Route
         {...rest}
         render={matchProps => (
