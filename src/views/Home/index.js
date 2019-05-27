@@ -1,27 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import { usersActions, usersSelectors } from "../../states/users";
 
+import Header from "../../components/Header";
 import UsersBackground from "../../components/UsersBackground";
 import UserList from "../../components/UserList";
 import Pagination from "../../components/Pagination";
-import { usersActions, usersSelectors } from "../../states/users";
+
 import { Container, Title } from "./styles";
 const Home = props => {
-  const { selectUser, pagination, paginate } = props;
+  const { selectUser, pagination, paginate, users, fetchUsers } = props;
 
-  const { users } = props;
+  const [input, setInput] = useState("");
+  const handleInput = e => {
+    const { value } = e.target;
+    setInput(value);
+  };
+  const enterPressCheck = e => {
+    return e.key === "Enter" && handleSearch();
+  };
+  const handleSearch = () => {
+    fetchUsers({ query: input });
+  };
   return (
-    // <UsersBackground users={users}>
-    <Container>
-      {users.length > 0 && <Title>User results</Title>}
-      <UserList selectUser={selectUser} users={users} />
-      <Pagination
-        pages={pagination.pages}
-        page={pagination.page}
-        onPaginate={paginate}
+    <>
+      <Header
+        inputSearchValue={input}
+        handleInput={handleInput}
+        enterPressCheck={enterPressCheck}
+        handleSearch={handleSearch}
+        isFull={users && users.length === 0}
+        placeholder="Search a github user by the name"
       />
-    </Container>
-    //</UsersBackground>
+      {/* <UsersBackground users={users}> */}
+      <main>
+        <Container>
+          {users.length > 0 && <Title>User results</Title>}
+          <UserList selectUser={selectUser} users={users} />
+          <Pagination
+            pages={pagination.pages}
+            page={pagination.page}
+            onPaginate={paginate}
+          />
+        </Container>
+      </main>
+      {/* </UsersBackground> */}
+    </>
   );
 };
 

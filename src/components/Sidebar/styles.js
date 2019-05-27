@@ -5,8 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: sticky;
-  top: 152px;
+  position: relative;
   width: 300px;
   height: 75vh;
   padding: 20px;
@@ -28,4 +27,45 @@ export const Avatar = styled.img`
 export const Username = styled.h1`
   font-family: "Roboto";
   font-size: 1.6em;
+`;
+
+export const Years = styled.ul`
+  overflow-y: auto;
+  width: 100%;
+  margin: 5px;
+  margin-top: 20px;
+  padding: 0px 20%;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #e1e1e1;
+  }
+`;
+
+export const Year = styled.li`
+  cursor: pointer;
+  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  span:nth-child(1) {
+    background: var(--black);
+    color: var(--grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+  }
+
+  span:not(first-child) {
+    text-align: center;
+    font-weight: bold;
+  }
 `;

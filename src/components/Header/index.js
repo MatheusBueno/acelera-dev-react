@@ -9,7 +9,8 @@ const Header = ({
   handleInput,
   enterPressCheck,
   handleSearch,
-  isFull
+  isFull,
+  placeholder
 }) => {
   return (
     <HeaderContainer full={isFull}>
@@ -17,7 +18,7 @@ const Header = ({
         onChange={handleInput}
         onKeyPress={enterPressCheck}
         value={inputSearchValue}
-        placeholder="Find a user"
+        placeholder={placeholder}
       />
       <Button onClick={handleSearch}>Search</Button>
     </HeaderContainer>

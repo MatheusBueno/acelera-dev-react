@@ -1,13 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Container } from './styles';
-import UserItem from '../UserItem';
+import React from "react";
+import PropTypes from "prop-types";
+import { Container, P } from "./styles";
+import UserItem from "../UserItem";
 
 const UserList = ({ users, selectUser }) => (
   <Container>
-    {users.map(user => (
-      <UserItem selectUser={selectUser} key={`user-${user.id}`} user={user} />
-    ))}
+    {users.length ? (
+      users.map(user => (
+        <UserItem selectUser={selectUser} key={`user-${user.id}`} user={user} />
+      ))
+    ) : (
+      <P>No user with that name found</P>
+    )}
   </Container>
 );
 
