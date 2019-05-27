@@ -1,23 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import { usersActions, usersSelectors } from '../../states/users';
-import { repositoryActions, repositorySelectors } from '../../states/repos';
+import { usersActions, usersSelectors } from "../../states/users";
+import { repositoryActions, repositorySelectors } from "../../states/repos";
 
-import Sidebar from '../../components/Sidebar';
-import RepositoryList from '../../components/RepositoryList';
-import { Container } from './styles';
-import { saveItemInLocalStorage, getItemFromLocalStorage } from '../../utils/utils';
+import Sidebar from "../../components/Sidebar";
+import RepositoryList from "../../components/RepositoryList";
+import { Container } from "./styles";
+import {
+  saveItemInLocalStorage,
+  getItemFromLocalStorage
+} from "../../utils/utils";
+import Header from "../../components/Header";
 
-const User = ({
-  user,
-  filter,
-  selectUser,
-  repositoriesList,
-  fetchUserRepositories,
-  filterUserRepositories
-}) => {
+const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
   const [years, setYears] = useState([]);
 
   useEffect(() => {
@@ -56,8 +53,31 @@ const User = ({
     setYears(_years);
   };
 
+  const [input, setInput] = useState("");
+  const handleInput = e => {
+    const { value } = e.target;
+    setInput(value);
+  };
+  const enterPressCheck = e => {
+    return e.key === "Enter" && handleSearch();
+  };
+  const handleSearch = () => {
+    console.log(123);
+  };
+  const onGoBack = () => {
+    console.log("IWILLBEBACK");
+  };
   return (
     <Container>
+      <Header
+        inputSearchValue={input}
+        handleInput={handleInput}
+        enterPressCheck={enterPressCheck}
+        handleSearch={handleSearch}
+        isFull={false}
+        placeholder="Search for a language in the user repository"
+        onGoBack={onGoBack}
+      />
       <Sidebar years={years} user={user} />
 
       <RepositoryList repositoriesList={repositoriesList} />

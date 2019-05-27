@@ -9,8 +9,8 @@ const styles = {
 
 const Header = styled.header`
   padding: 32px 24px;
-  height: 72px;
   top: 0;
+  left: 0;
   width: 100vw;
   z-index: 2;
   position: fixed;
