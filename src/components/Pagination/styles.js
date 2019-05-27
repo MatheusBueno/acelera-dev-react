@@ -22,7 +22,14 @@ export const Page = styled.span`
   color: ${props => (props.active ? '#282828' : '#ffffff')};
   background: ${props => (props.active ? '#ffffff' : '#282828')};
   border: ${props => (!props.active ? '1px solid #ffffff' : 'none')};
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
+
   :hover {
     color: #282828;
     border: 1px solid #ffffff;
