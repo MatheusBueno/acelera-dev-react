@@ -5,9 +5,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: 172px;
+  height: fit-content;
   width: 300px;
-  height: 75vh;
   padding: 20px;
   padding-top: 120px;
   border-radius: 8px;
@@ -47,10 +48,11 @@ export const Years = styled.ul`
 
 export const Year = styled.li`
   cursor: pointer;
-  font-family: "Roboto";
+  /* font-family: "Roboto"; */
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  position: relative;
+  /* justify-content: space-between; */
 
   span:nth-child(1) {
     background: var(--black);
@@ -62,6 +64,16 @@ export const Year = styled.li`
     width: 60px;
     height: 60px;
     border-radius: 100%;
+    margin-right: 30px;
+  }
+  &:not(:first-child) span:first-child::before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 3px;
+    background: var(--black);
+    position: absolute;
+    top: -15px;
   }
 
   span:not(first-child) {
