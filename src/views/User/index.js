@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -19,6 +18,8 @@ const User = ({
   fetchUserRepositories,
   filterUserRepositories
 }) => {
+  const [years, setYears] = useState([]);
+
   useEffect(() => {
     if (user) {
       saveItemInLocalStorage('userStorage', user);
@@ -32,7 +33,6 @@ const User = ({
 
   useEffect(() => {
     getCreatedAtRepositories(repositoriesList);
-    console.log(repositoriesList);
   }, [repositoriesList]);
 
   const getCreatedAtRepositories = repositories => {
@@ -52,7 +52,7 @@ const User = ({
 
     // Sort years order from highest to lowest
     _years.sort((a, b) => (b.year > a.year ? 1 : a.year > b.year ? -1 : 0));
-    _years = [{ year: "Todos", count: repositories.length }, ..._years];
+    _years = [{ year: 'Todos', count: repositories.length }, ..._years];
     setYears(_years);
   };
 
