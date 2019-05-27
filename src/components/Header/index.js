@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import HeaderContainer from "./styles";
 import { InputSearch } from "../Input";
 import Button from "../Button";
+import { ArrowLeft } from "react-feather";
 
 const Header = ({
   inputSearchValue,
@@ -10,10 +11,17 @@ const Header = ({
   enterPressCheck,
   handleSearch,
   isFull,
-  placeholder
+  placeholder,
+  onGoBack
 }) => {
   return (
     <HeaderContainer full={isFull}>
+      {onGoBack && (
+        <Button icon style={{ marginRight: "20px" }} onClick={onGoBack}>
+          <ArrowLeft />
+        </Button>
+      )}
+
       <InputSearch
         onChange={handleInput}
         onKeyPress={enterPressCheck}
@@ -27,6 +35,7 @@ const Header = ({
 
 Header.defaultProps = {
   inputSearchValue: "",
+  placeholder: "",
   isFull: true,
   handleInput: function() {},
   enterPressCheck: function() {},
@@ -38,7 +47,9 @@ Header.propTypes = {
   isFull: PropTypes.bool,
   handleInput: PropTypes.func,
   enterPressCheck: PropTypes.func,
-  handleSearch: PropTypes.func
+  handleSearch: PropTypes.func,
+  placeholder: PropTypes.string,
+  onGoBack: PropTypes.func
 };
 
 export default Header;
