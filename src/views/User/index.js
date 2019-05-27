@@ -1,29 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { usersActions, usersSelectors } from "../../states/users";
-import { repositoryActions, repositorySelectors } from "../../states/repos";
+import { usersActions, usersSelectors } from '../../states/users';
+import { repositoryActions, repositorySelectors } from '../../states/repos';
 
-import Sidebar from "../../components/Sidebar";
-import RepositoryList from "../../components/RepositoryList";
-import { Container } from "./styles";
-import {
-  saveItemInLocalStorage,
-  getItemFromLocalStorage
-} from "../../utils/utils";
-import Header from "../../components/Header";
+import Sidebar from '../../components/Sidebar';
+import RepositoryList from '../../components/RepositoryList';
+import { Container } from './styles';
+import { saveItemInLocalStorage, getItemFromLocalStorage } from '../../utils/utils';
+import Header from '../../components/Header';
 
-const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
+const User = ({
+  user,
+  repositoriesList,
+  fetchUserRepositories,
+  selectUser,
+  filterUserRepositories,
+  history
+}) => {
   const [years, setYears] = useState([]);
 
   useEffect(() => {
     if (user) {
       saveItemInLocalStorage('userStorage', user);
+      filterUserRepositories('');
       fetchUserRepositories({ query: user.login });
     } else {
       const userStorage = getItemFromLocalStorage('userStorage');
       selectUser({ user: userStorage });
+      filterUserRepositories('');
       fetchUserRepositories({ query: userStorage.login });
     }
   });
@@ -53,19 +59,19 @@ const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
     setYears(_years);
   };
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const handleInput = e => {
     const { value } = e.target;
     setInput(value);
   };
   const enterPressCheck = e => {
-    return e.key === "Enter" && handleSearch();
+    return e.key === 'Enter' && handleSearch();
   };
   const handleSearch = () => {
-    console.log(123);
+    filterUserRepositories(input);
   };
   const onGoBack = () => {
-    console.log("IWILLBEBACK");
+    history.goBack();
   };
   return (
     <Container>
