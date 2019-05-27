@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  height: calc(100vh - 112px);
+  height: calc(100vh - 142px);
   display: flex;
   flex-direction: column;
 `;
