@@ -7,6 +7,8 @@ const Styles = styled.div`
   height: 100vh;
   z-index: 10;
   position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export default Styles;

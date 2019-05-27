@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-left: 20px;
+  column-gap: 20px;
+  flex-grow: 1;
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  min-height: 100%;
 `;
 
 export const Repository = styled.div`
