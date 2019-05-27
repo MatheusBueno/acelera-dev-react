@@ -1,33 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { usersActions, usersSelectors } from "../../states/users";
-import { repositoryActions, repositorySelectors } from "../../states/repos";
+import { usersActions, usersSelectors } from '../../states/users';
+import { repositoryActions, repositorySelectors } from '../../states/repos';
 
-import Sidebar from "../../components/Sidebar";
-import RepositoryList from "../../components/RepositoryList";
-import { Container, Content } from "./styles";
-import {
-  saveItemInLocalStorage,
-  getItemFromLocalStorage
-} from "../../utils/utils";
+import Sidebar from '../../components/Sidebar';
+import RepositoryList from '../../components/RepositoryList';
+import { Container } from './styles';
+import { saveItemInLocalStorage, getItemFromLocalStorage } from '../../utils/utils';
 
-const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
+const User = ({
+  user,
+  filter,
+  selectUser,
+  repositoriesList,
+  fetchUserRepositories,
+  filterUserRepositories
+}) => {
   useEffect(() => {
-    console.log(user);
-
-    // If refresh page user is undefined
-    // So get user from localStorage
     if (user) {
-      saveItemInLocalStorage("userStorage", user);
-      fetchRepository({ query: user.login });
+      saveItemInLocalStorage('userStorage', user);
+      fetchUserRepositories({ query: user.login });
     } else {
-      const userStorage = getItemFromLocalStorage("userStorage");
+      const userStorage = getItemFromLocalStorage('userStorage');
       selectUser({ user: userStorage });
-      fetchRepository({ query: userStorage.login });
+      fetchUserRepositories({ query: userStorage.login });
     }
-  }, []);
+  });
 
   return (
     <Container>
@@ -39,13 +39,15 @@ const User = ({ user, repositoriesList, fetchRepository, selectUser }) => {
 
 const mapStateToProps = state => ({
   user: usersSelectors.selectUser(state),
-  repositoriesList: repositorySelectors.selectUserRepositories(state)
+  repositoriesList: repositorySelectors.selectUserRepositories(state),
+  filter: state.repos.filter
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchRepository: ({ query }) =>
+  selectUser: ({ user }) => dispatch(usersActions.selectUser({ user })),
+  fetchUserRepositories: ({ query }) =>
     dispatch(repositoryActions.fetchUserRepositories({ query })),
-  selectUser: ({ user }) => dispatch(usersActions.selectUser({ user }))
+  filterUserRepositories: filter => dispatch(repositoryActions.filterUserRepositories(filter))
 });
 
 export default connect(

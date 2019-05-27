@@ -1,4 +1,4 @@
-import { repositoryTypes } from "./";
+import { repositoryTypes } from './';
 
 const fetchUserRepositories = ({ query }) => ({
   type: repositoryTypes.FETCH_REPOSITORIES_REQUEST,
@@ -15,8 +15,14 @@ const fetchUserRepositoriesFailure = ({ message }) => ({
   payload: { message }
 });
 
+const filterUserRepositories = filter => ({
+  type: repositoryTypes.FILTER_REPOSITORIES,
+  payload: filter
+});
+
 export default {
   fetchUserRepositories,
   fetchUserRepositoriesSuccess,
-  fetchUserRepositoriesFailure
+  fetchUserRepositoriesFailure,
+  filterUserRepositories
 };
