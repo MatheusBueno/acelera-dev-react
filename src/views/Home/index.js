@@ -1,45 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import UsersBackground from '../../components/UsersBackground';
-import UserList from '../../components/UserList';
-import Pagination from '../../components/Pagination';
-import { usersActions, usersSelectors } from '../../states/users';
-
+import UsersBackground from "../../components/UsersBackground";
+import UserList from "../../components/UserList";
+import Pagination from "../../components/Pagination";
+import { usersActions, usersSelectors } from "../../states/users";
+import { Container, Title } from "./styles";
 const Home = props => {
   const { selectUser, pagination, paginate } = props;
 
   const { users } = props;
   return (
-    <UsersBackground users={users}>
-      <section
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          height: '100vh',
-          width: '100vw',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          padding: '20px',
-          paddingTop: '72px'
-        }}
-      >
-        <div
-          style={{
-            flexGrow: 1,
-            marginTop: '20px',
-            alignItems: 'center',
-            display: 'flex'
-          }}
-        >
-          <UserList selectUser={selectUser} users={users} />
-        </div>
-        <Pagination pages={pagination.pages} page={pagination.page} onPaginate={paginate} />
-      </section>
-    </UsersBackground>
+    // <UsersBackground users={users}>
+    <Container>
+      {users.length > 0 && <Title>User results</Title>}
+      <UserList selectUser={selectUser} users={users} />
+      <Pagination
+        pages={pagination.pages}
+        page={pagination.page}
+        onPaginate={paginate}
+      />
+    </Container>
+    //</UsersBackground>
   );
 };
 

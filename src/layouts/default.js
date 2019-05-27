@@ -4,6 +4,7 @@ import actions from "../states/users/actions";
 import { Route } from "react-router-dom";
 import Header from "../components/Header";
 import Loading from "../components/Loading";
+import { Main } from "./styles";
 
 const DefaultLayout = ({
   component: Component,
@@ -36,16 +37,10 @@ const DefaultLayout = ({
       <Route
         {...rest}
         render={matchProps => (
-          <div
-            className="DefaultLayout"
-            style={{
-              padding: "72px 20px 0px",
-              display: "flex"
-            }}
-          >
+          <Main>
             {isLoading && <Loading />}
             <Component {...matchProps} />
-          </div>
+          </Main>
         )}
       />
     </>
