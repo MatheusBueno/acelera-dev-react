@@ -4,13 +4,13 @@ import { Container, Prev, Next, Page } from './styles';
 
 const Pagination = ({ pages, page, onPaginate }) => (
   <Container>
-    {page > 1 && <Prev onClick={() => onPaginate(page - 1)} />}
+    {<Prev onClick={() => onPaginate(page > 1 ? page - 1 : page)} />}
     {Array.from(Array(pages), (x, i) => i + 1).map(p => (
       <Page key={`pagination-${p}`} active={page === p} onClick={() => onPaginate(p)}>
         {p}
       </Page>
     ))}
-    {page < pages && <Next onClick={() => onPaginate(page + 1)} />}
+    {<Next onClick={() => onPaginate(page < pages ? page + 1 : page)} />}
   </Container>
 );
 
