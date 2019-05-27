@@ -1,4 +1,4 @@
-import { usersTypes } from "./";
+import { usersTypes } from './';
 
 const fetchUsers = ({ query }) => ({
   type: usersTypes.FETCH_USERS_REQUEST,
@@ -20,9 +20,15 @@ const selectUser = ({ user }) => ({
   payload: { user }
 });
 
+const paginate = ({ page }) => ({
+  type: usersTypes.CHANGE_PAGINATION,
+  payload: { page }
+});
+
 export default {
   fetchUsers,
   fetchUsersSuccess,
   fetchUsersFailure,
-  selectUser
+  selectUser,
+  paginate
 };

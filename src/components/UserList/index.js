@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Container } from "./styles";
-import UserItem from "../UserItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Container } from './styles';
+import UserItem from '../UserItem';
 
 const UserList = ({ users, selectUser }) => (
   <Container>
-    {users.slice(0, 6).map(user => (
+    {users.map(user => (
       <UserItem selectUser={selectUser} key={`user-${user.id}`} user={user} />
     ))}
   </Container>

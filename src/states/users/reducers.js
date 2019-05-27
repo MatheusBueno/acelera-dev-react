@@ -1,4 +1,4 @@
-import { usersTypes } from "./";
+import { usersTypes } from './';
 
 const INITIAL_STATE = {
   users: [],
@@ -31,6 +31,9 @@ export default (state = INITIAL_STATE, action) => {
       };
     case usersTypes.SELECT_USER:
       return { ...state, user: action.payload.user };
+    case usersTypes.CHANGE_PAGINATION: {
+      return { ...state, page: action.payload.page };
+    }
     default:
       return state;
   }
