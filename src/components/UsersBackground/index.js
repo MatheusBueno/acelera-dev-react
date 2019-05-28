@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react';
-import Particles from 'react-particles-js';
+import React, { Fragment } from "react";
+import Particles from "react-particles-js";
 
 export default ({ users, children }) => (
   <Fragment>
     <Particles
+      style={{ position: "absolute", left: 0, zIndex: 0 }}
       params={{
         particles: {
           number: {
             value: users.length,
             density: {
               enable: true,
-              value_area: 800
+              value_area: 500
             }
           },
           line_linked: {
@@ -18,14 +19,18 @@ export default ({ users, children }) => (
           },
           move: {
             speed: 1,
-            out_mode: 'out'
+            out_mode: "out"
           },
           shape: {
-            type: 'circle',
-            images: users.map(user => ({ src: user.avatar_url, height: 20, width: 20 }))
+            type: "circle",
+            images: users.map(user => ({
+              src: user.avatar_url,
+              height: 20,
+              width: 20
+            }))
           },
           color: {
-            value: '#ffffff'
+            value: "#ffffff"
           },
           opacity: {
             value: 0.05,

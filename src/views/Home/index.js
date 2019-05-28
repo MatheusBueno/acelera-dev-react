@@ -7,7 +7,7 @@ import UsersBackground from "../../components/UsersBackground";
 import UserList from "../../components/UserList";
 import Pagination from "../../components/Pagination";
 
-import { Container, Title } from "./styles";
+import { Container, Title, Main } from "./styles";
 const Home = props => {
   const { selectUser, pagination, paginate, users, fetchUsers } = props;
 
@@ -32,19 +32,19 @@ const Home = props => {
         isFull={users && users.length === 0}
         placeholder="Search a github user by the name"
       />
-      {/* <UsersBackground users={users}> */}
-      <main>
-        <Container>
-          {users.length > 0 && <Title>User results</Title>}
-          <UserList selectUser={selectUser} users={users} />
-          <Pagination
-            pages={pagination.pages}
-            page={pagination.page}
-            onPaginate={paginate}
-          />
-        </Container>
-      </main>
-      {/* </UsersBackground> */}
+      <UsersBackground users={users}>
+        <Main>
+          <Container>
+            {users.length > 0 && <Title>User results</Title>}
+            <UserList selectUser={selectUser} users={users} />
+            <Pagination
+              pages={pagination.pages}
+              page={pagination.page}
+              onPaginate={paginate}
+            />
+          </Container>
+        </Main>
+      </UsersBackground>
     </>
   );
 };
