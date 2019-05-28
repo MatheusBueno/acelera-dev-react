@@ -1,17 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, P } from "./styles";
+import { Container, P, Icon } from "./styles";
 import UserItem from "../UserItem";
 
-const UserList = ({ users, selectUser }) => (
+const UserList = ({ users, selectUser, wasDispatchedSearch }) => (
   <Container>
-    {users.length ? (
-      users.map(user => (
-        <UserItem selectUser={selectUser} key={`user-${user.id}`} user={user} />
-      ))
-    ) : (
-      <P>No user with that name found</P>
-    )}
+    {users.length
+      ? users.map(user => (
+          <UserItem
+            selectUser={selectUser}
+            key={`user-${user.id}`}
+            user={user}
+          />
+        ))
+      : wasDispatchedSearch && (
+          <P>
+            <Icon role="img" aria-label="Detective">
+              🕵🏻
+            </Icon>
+            No user with that name found
+          </P>
+        )}
   </Container>
 );
 

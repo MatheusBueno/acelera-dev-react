@@ -12,7 +12,7 @@ const Header = styled.header`
   top: 0;
   left: 0;
   width: 100vw;
-  z-index: 100;
+  z-index: 5;
   position: fixed;
   background: var(--grey);
   display: flex;

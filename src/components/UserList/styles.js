@@ -9,6 +9,12 @@ export const Container = styled.div`
 `;
 
 export const P = styled.p`
-  color: var(--white);
-  font-size: 16px;
+  color: var(--blue);
+  font-family: "Roboto";
+  margin-top: 50px;
+  font-size: 20px;
+`;
+
+export const Icon = styled.span`
+  padding-right: 10px;
 `;

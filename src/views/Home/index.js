@@ -10,17 +10,20 @@ import Pagination from "../../components/Pagination";
 import { Container, Title, Main } from "./styles";
 const Home = props => {
   const { selectUser, pagination, paginate, users, fetchUsers } = props;
-
   const [input, setInput] = useState("");
+  const [wasDispatchedSearch, setWasDispatchedSearch] = useState(false);
+
   const handleInput = e => {
     const { value } = e.target;
     setInput(value);
+    setWasDispatchedSearch(false);
   };
   const enterPressCheck = e => {
     return e.key === "Enter" && handleSearch();
   };
   const handleSearch = () => {
     fetchUsers({ query: input });
+    setWasDispatchedSearch(true);
   };
   return (
     <>
@@ -36,7 +39,11 @@ const Home = props => {
         <Main>
           <Container>
             {users.length > 0 && <Title>User results</Title>}
-            <UserList selectUser={selectUser} users={users} />
+            <UserList
+              wasDispatchedSearch={wasDispatchedSearch}
+              selectUser={selectUser}
+              users={users}
+            />
             <Pagination
               pages={pagination.pages}
               page={pagination.page}
