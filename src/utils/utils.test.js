@@ -1,8 +1,4 @@
-import {
-  selectImageLanguage,
-  getItemFromLocalStorage,
-  saveItemInLocalStorage
-} from "./utils";
+import { selectImageLanguage } from "./utils";
 
 describe("Utils Images functions", () => {
   it("must return javascript image path", () => {
@@ -121,16 +117,5 @@ describe("Utils Images functions", () => {
   it("must return not found image path", () => {
     const expectedAction = "not-found.png";
     expect(selectImageLanguage("anything")).toEqual(expectedAction);
-  });
-});
-
-describe("Utils Storage functions", () => {
-  it("must set a item in localStorage", () => {
-    const expectedAction = undefined;
-    expect(saveItemInLocalStorage("user", {})).toEqual(expectedAction);
-  });
-  it("must get a item in localStorage", () => {
-    const expectedAction = {};
-    expect(getItemFromLocalStorage("user")).toEqual(expectedAction);
   });
 });

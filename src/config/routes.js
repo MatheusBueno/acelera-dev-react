@@ -10,7 +10,7 @@ export default () => {
     <BrowserRouter>
       <Switch>
         <DefaultLayout path="/" exact component={Home} />
-        <DefaultLayout path="/user" component={User} />
+        <DefaultLayout path="/user/:userName" component={User} />
       </Switch>
     </BrowserRouter>
   );

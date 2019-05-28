@@ -1,11 +1,3 @@
-export function saveItemInLocalStorage(key, item) {
-  localStorage.setItem(key, JSON.stringify(item));
-}
-
-export function getItemFromLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-
 export function selectImageLanguage(language) {
   if (language === "JavaScript") {
     return require("./../assets/img/languages/js.png");
