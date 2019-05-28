@@ -8,6 +8,7 @@ function* fetchRepositories(action) {
     const response = yield call(RepositoryService.getUserRepositories, {
       username: action.payload.query
     });
+    console.log(response);
 
     yield put(repositoryActions.fetchUserRepositoriesSuccess(response.data));
   } catch (err) {

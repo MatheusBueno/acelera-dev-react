@@ -1,8 +1,8 @@
-import { repositoryTypes } from './';
+import { repositoryTypes } from "./";
 
 const INITIAL_STATE = {
   repositories: [],
-  filter: ''
+  filter: ""
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,16 +12,12 @@ export default (state = INITIAL_STATE, action) => {
     case repositoryTypes.FETCH_REPOSITORIES_SUCCESS:
       return {
         ...state,
-        isLoading: false,
-        pages: Math.ceil(action.payload.length / state.limit),
-        page: 1,
         repositories: [...action.payload]
       };
     case repositoryTypes.FETCH_REPOSITORIES_FAILURE:
       return {
         ...state,
         users: [],
-        isLoading: false,
         error: action.payload.message
       };
     case repositoryTypes.FILTER_REPOSITORIES:

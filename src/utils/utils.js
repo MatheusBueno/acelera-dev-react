@@ -32,7 +32,7 @@ export function selectImageLanguage(language) {
     return require("./../assets/img/languages/Erlang_logo.svg.png");
   }
   if (language === "CSS") {
-    return require("./../assets/img/languages/CSS.3.svg.png");
+    return require("./../assets/img/languages/CSS.3.png");
   }
   if (language === "Arduino") {
     return require("./../assets/img/languages/arduino.png");
@@ -67,7 +67,7 @@ export function selectImageLanguage(language) {
   if (language === "Elixir") {
     return require("./../assets/img/languages/-MWyJCb1.png");
   }
-  if (language === "Shell" || language === 'PowerShell') {
+  if (language === "Shell" || language === "PowerShell") {
     return require("./../assets/img/languages/shell.png");
   }
   if (language === "R") {
@@ -85,8 +85,5 @@ export function selectImageLanguage(language) {
   if (language === "React") {
     return require("./../assets/img/languages/react.png");
   }
-
-  console.log(language);
-
   return require("./../assets/img/languages/not-found.png");
 }
