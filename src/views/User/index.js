@@ -92,7 +92,7 @@ const User = ({
 };
 
 const mapStateToProps = state => ({
-  user: usersSelectors.selectUser(state),
+  user: usersSelectors.selectUser(state.users),
   repositoriesList: repositorySelectors.selectUserRepositories(state),
   filter: state.repos.filter
 });
