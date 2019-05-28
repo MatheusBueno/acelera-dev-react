@@ -32,7 +32,7 @@ const User = ({
       filterUserRepositories('');
       fetchUserRepositories({ query: userStorage.login });
     }
-  });
+  }, []);
 
   useEffect(() => {
     getCreatedAtRepositories(repositoriesList);
