@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   Container,
@@ -35,5 +36,13 @@ const RepositoryList = ({ repositoriesList }) => {
     </Container>
   );
 };
+
+RepositoryList.propTypes = {
+  repositoriesList: PropTypes.array
+}
+
+RepositoryList.defaultProps = {
+  repositoriesList: []
+}
 
 export default RepositoryList;
