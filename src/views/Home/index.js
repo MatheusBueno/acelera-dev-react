@@ -50,8 +50,8 @@ const Home = props => {
 };
 
 const mapStateToProps = state => ({
-  users: usersSelectors.selectUsers(state),
-  pagination: usersSelectors.selectPagination(state)
+  users: usersSelectors.selectUsers(state.users),
+  pagination: usersSelectors.selectPagination(state.users)
 });
 
 const mapDispatchToProps = dispatch => ({
