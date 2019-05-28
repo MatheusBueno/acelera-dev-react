@@ -1,51 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import { Container, SearchIcon, Placeholder } from "./styles";
 
-const Input = styled.input`
-  height: 36px;
-  padding: 16px 8px;
-  position: relative;
-  font-size: 16px;
-  border: 0;
-  width: 100%;
-  max-width: 768px;
-  outline: none;
-  border-bottom: 1px solid black;
-  &[type="search"] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    text-indent: 28px;
-  }
-  &:focus {
-    border-bottom: 1px solid var(--hover-blue);
-    transition: all 0.2s ease-in;
-  }
-  &:focus ~ ${Placeholder} {
-    top: -16px;
-    font-size: 14px;
-    font-family: medium;
-    color: var(--hover-blue);
-  }
-  &:focus ~ ${SearchIcon} {
-    color: var(--hover-blue);
-  }
-  ${props =>
-    props.value &&
-    `& ~ ${Placeholder} {
-      top: -16px;
-      font-size: 14px;
-      font-family: medium;
-    }`}
-  ::placeholder {
-    color: var(--grey);
-  }
-  :disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
-`;
+import { Container, SearchIcon, Placeholder, Input } from "./styles";
 
 export const InputSearch = ({
   value,

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const styles = {
   full: `
@@ -12,7 +12,7 @@ const Header = styled.header`
   top: 0;
   left: 0;
   width: 100vw;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
   background: var(--grey);
   display: flex;

@@ -12,3 +12,7 @@ export const Title = styled.h2`
   font-family: medium;
   text-align: center;
 `;
+
+export const Main = styled.main`
+  z-index: 10;
+`;
