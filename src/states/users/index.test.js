@@ -1,6 +1,11 @@
-import { usersActions, usersSelectors, usersTypes, usersSaga } from "./";
+import mockAxios from "axios";
+
+import { usersActions, usersSelectors, usersTypes } from "./";
 import reducer from "./";
 import usersMock from "./users.mock.json";
+import { fetchUsers } from "./sagas";
+
+jest.mock("axios");
 
 describe("Users actions", () => {
   it("Should create an action to fetch users", () => {
@@ -143,4 +148,15 @@ describe("Users selectors", () => {
   });
 });
 
-describe("Users sagas", () => {});
+describe("Users Sagas", () => {
+  it("Should call fetchRepositories function", () => {
+    mockAxios.get.mockImplementationOnce(() => Promise.resolve([]));
+
+    const action = { payload: { query: "Codenation" } };
+    const gen = fetchUsers(action);
+
+    expect(gen.next().value).toBeTruthy();
+    expect(gen.next().value).toBeTruthy();
+    expect(gen.next().done).toBeTruthy();
+  });
+});

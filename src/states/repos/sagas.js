@@ -3,12 +3,11 @@ import { call, put, takeLatest } from "redux-saga/effects";
 import { repositoryTypes, repositoryActions } from "./";
 import RepositoryService from "../../services/repository";
 
-function* fetchRepositories(action) {
+export function* fetchRepositories(action) {
   try {
     const response = yield call(RepositoryService.getUserRepositories, {
       username: action.payload.query
     });
-    console.log(response);
 
     yield put(repositoryActions.fetchUserRepositoriesSuccess(response.data));
   } catch (err) {

@@ -1,10 +1,12 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { usersActions, usersTypes } from './';
-import RepositoryService from '../../services/repository';
+import { call, put, takeLatest } from "redux-saga/effects";
+import { usersActions, usersTypes } from "./";
+import RepositoryService from "../../services/repository";
 
-function* fetchUsers(action) {
+export function* fetchUsers(action) {
   try {
-    const response = yield call(RepositoryService.searchUsers, { username: action.payload.query });
+    const response = yield call(RepositoryService.searchUsers, {
+      username: action.payload.query
+    });
     yield put(usersActions.fetchUsersSuccess(response.data));
   } catch (err) {
     yield put(usersActions.fetchUsersFailure(err));

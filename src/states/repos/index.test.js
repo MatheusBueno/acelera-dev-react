@@ -1,6 +1,11 @@
+import mockAxios from "axios";
+
 import { repositoryActions, repositoryTypes, repositorySelectors } from "./";
 import reducer from "./";
 import reposMock from "./repos.mock.json";
+import { fetchRepositories } from "./sagas";
+
+jest.mock("axios");
 
 describe("Repositories actions", () => {
   it("Should create an action to fetch repositories", () => {
@@ -122,5 +127,18 @@ describe("Repositories selectors", () => {
     expect(repositorySelectors.selectUserRepositories(state)).toEqual(
       expectedRepo
     );
+  });
+});
+
+describe("Repositories Sagas", () => {
+  it("Should call fetchRepositories function", () => {
+    mockAxios.get.mockImplementationOnce(() => Promise.resolve([]));
+
+    const action = { payload: { query: "Codenation" } };
+    const gen = fetchRepositories(action);
+
+    expect(gen.next().value).toBeTruthy();
+    expect(gen.next().value).toBeTruthy();
+    expect(gen.next().done).toBeTruthy();
   });
 });
