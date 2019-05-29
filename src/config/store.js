@@ -1,6 +1,5 @@
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
-import Reactotron from "./reactotron";
 
 import usersReducer from "../states/users";
 import reposReducers from "../states/repos";
@@ -16,10 +15,7 @@ const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
-  compose(
-    composeEnhancers(applyMiddleware(sagaMiddleware)),
-    Reactotron.createEnhancer()
-  )
+  compose(composeEnhancers(applyMiddleware(sagaMiddleware)))
 );
 sagaMiddleware.run(rootSagas);
 

@@ -27,4 +27,9 @@ const Sidebar = ({ user, years }) => {
   );
 };
 
+Sidebar.defaultProps = {
+  years: [],
+  user: {}
+};
+
 export default Sidebar;

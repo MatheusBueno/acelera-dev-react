@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import Particles from "react-particles-js";
 
-export default ({ users, children }) => (
+export default ({ children }) => (
   <Fragment>
     <Particles
       style={{ position: "absolute", left: 0, zIndex: 0 }}
       params={{
         particles: {
           number: {
-            value: users.length,
+            value: 15,
             density: {
               enable: true,
               value_area: 500
@@ -23,11 +23,7 @@ export default ({ users, children }) => (
           },
           shape: {
             type: "circle",
-            images: users.map(user => ({
-              src: user.avatar_url,
-              height: 20,
-              width: 20
-            }))
+            
           },
           color: {
             value: "#ffffff"
