@@ -12,7 +12,7 @@ const UserItem = ({ user, selectUser }) => {
   };
 
   return (
-    <Container onClick={selectAUser}>
+    <Container data-testid="user-component" onClick={selectAUser}>
       <Link to={{ pathname: "/user" }}>
         <Avatar src={user.avatar_url || Nicolas} />
         <Title>{user.login}</Title>

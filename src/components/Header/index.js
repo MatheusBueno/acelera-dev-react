@@ -11,6 +11,7 @@ const Header = ({
   enterPressCheck,
   handleSearch,
   isFull,
+  isSearching,
   placeholder,
   onGoBack
 }) => {
@@ -28,7 +29,7 @@ const Header = ({
         value={inputSearchValue}
         placeholder={placeholder}
       />
-      <Button onClick={handleSearch}>Search</Button>
+      <Button onClick={handleSearch}>{!!isSearching ? 'Searching' : 'Search'}</Button>
     </HeaderContainer>
   );
 };
@@ -37,6 +38,7 @@ Header.defaultProps = {
   inputSearchValue: "",
   placeholder: "",
   isFull: true,
+  isSearching: false,
   handleInput: function() {},
   enterPressCheck: function() {},
   handleSearch: function() {}
@@ -45,6 +47,7 @@ Header.defaultProps = {
 Header.propTypes = {
   inputSearchValue: PropTypes.string,
   isFull: PropTypes.bool,
+  isSearching: PropTypes.bool,
   handleInput: PropTypes.func,
   enterPressCheck: PropTypes.func,
   handleSearch: PropTypes.func,

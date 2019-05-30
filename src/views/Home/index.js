@@ -9,7 +9,7 @@ import Pagination from "../../components/Pagination";
 
 import { Container, Title, Main } from "./styles";
 const Home = props => {
-  const { selectUser, pagination, paginate, users, fetchUsers } = props;
+  const { selectUser, pagination, paginate, users, fetchUsers, isLoading } = props;
   const [input, setInput] = useState("");
   const [wasDispatchedSearch, setWasDispatchedSearch] = useState(false);
 
@@ -33,6 +33,7 @@ const Home = props => {
         enterPressCheck={enterPressCheck}
         handleSearch={handleSearch}
         isFull={users && users.length === 0}
+        isSearching={isLoading}
         placeholder="Search a github user by the name"
       />
       <UsersBackground users={users}>
@@ -58,7 +59,8 @@ const Home = props => {
 
 const mapStateToProps = state => ({
   users: usersSelectors.selectUsers(state.users),
-  pagination: usersSelectors.selectPagination(state.users)
+  pagination: usersSelectors.selectPagination(state.users),
+  isLoading: state.users.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

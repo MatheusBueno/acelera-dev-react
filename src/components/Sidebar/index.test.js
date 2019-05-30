@@ -9,7 +9,8 @@ describe('Sidebar Component', () => {
   });
 
   it('Should render component with params', () => {
-    const wrapper = render(<Sidebar user={{ avatar_url: 'test', login: 'test' }} />);
+    const wrapper = render(<Sidebar user={{ avatar_url: 'http://test', login: 'test' }} />);
     expect(wrapper).toBeTruthy();
   });
+
 });

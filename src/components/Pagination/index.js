@@ -6,7 +6,7 @@ const Pagination = ({ pages, page, onPaginate }) => (
   <Container>
     <Prev data-testid="pagination-prev" onClick={() => onPaginate(page > 1 ? page - 1 : page)} />
     {Array.from(Array(pages), (x, i) => i + 1).map(p => (
-      <Page key={`pagination-${p}`} active={page === p} onClick={() => onPaginate(p)}>
+      <Page data-testid={`pagination-${p}`} key={`pagination-${p}`} active={page === p} onClick={() => onPaginate(p)}>
         {p}
       </Page>
     ))}

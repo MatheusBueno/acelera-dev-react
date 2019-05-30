@@ -16,8 +16,8 @@ const Sidebar = ({ user, years }) => {
 
   return (
     <Container>
-      <Avatar src={user ? user.avatar_url : Nicolas} />
-      <Username> {user ? user.login : "Nicolas"} </Username>
+      <Avatar src={user.avatar_url ? user.avatar_url : Nicolas} />
+      <Username> {user.login ? user.login : "Nicolas"} </Username>
 
       <Years>
         {renderYears(years)}

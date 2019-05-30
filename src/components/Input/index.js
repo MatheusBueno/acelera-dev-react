@@ -13,6 +13,7 @@ export const InputSearch = ({
   return (
     <Container>
       <Input
+        data-testid="input"
         type="search"
         value={value}
         onInput={onInput}
